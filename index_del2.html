@@ -10,30 +10,44 @@
     <title>Bish-Bosh 2.0</title>
 </head>
 <body>
-
     <div id="container">
         <header><h1>Bish-Bosh 2.0</h1></header>
 
-        <label for="txtNumberOfTurns">Antal varv i loopen</label>
-        <input id="txtNumberOfTurns" type="number" min="1" placeholder="Antal varv i loopen" />
-        <span id="txtNumberOfTurnsError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+        <section>
+            <p>Bish-Bosh listar alla tal mellan 1 och 100, men vissa undantag.</p>
+            <p>Om talet är jämnt delbart med första divisorn listas ‘Bish’ istället för talet. Om talet är jämnt delbart med andra divisorn listas ‘ Bosh ’ istället för talet.</p>
+            <p>Om talet är jämnt delbart med både första och andra divisorn skrivs “ Bish-Bosh ” istället för talet.</p>
+            <p>Exempel med första divisorn = 3 och andra divisorn = 4:</p>
+            <p>1, 2, Bish , Bosh , 5, Bish , 7, Bosh , Bish , 10, 11, Bish-Bosh , 13, 14, Bish [...]</p>
+        </section>
 
-        <br/>
-        <label for="txtFirstDivisor">Första talet som talet kan vara jämnt delbart med</label>
-        <input id="txtFirstDivisor" type="number" min="1" placeholder="Första divisorn" />
-        <span id="txtFirstDivisorError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+        <hr />
 
-        <br/>
-        <label for="txtSecondDivisor">Andra talet som talet kan vara jämnt delbart med</label>
-        <input id="txtSecondDivisor" type="number" min="1" placeholder="Andra divisorn" />
-        <span id="txtSecondDivisorError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+        <section>  
+            <h2>Ange följande värden och tryck på knappen Bish-Bush 2.0</h2>
+            <p>Värden du skriver in måste vara positiva och över 0</p>
+            <label for="txtNumberOfTurns">Antal varv i loopen</label>
+            <input id="txtNumberOfTurns" type="number" min="1" placeholder="Antal varv i loopen" />
+            <span id="txtNumberOfTurnsError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
 
-        <br/>
-        <button id="btnRun">Bish-Bosh 2.0</button>
+            <br/>
+            <label for="txtFirstDivisor">Första talet som talet kan vara jämnt delbart med</label>
+            <input id="txtFirstDivisor" type="number" min="1" placeholder="Första divisorn" />
+            <span id="txtFirstDivisorError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
 
-        <br/>
-        <p>Utskrift</p>
-        <textarea id="txtResult" readonly="readonly" style="width:700px; height:600px;"></textarea>
+            <br/>
+            <label for="txtSecondDivisor">Andra talet som talet kan vara jämnt delbart med</label>
+            <input id="txtSecondDivisor" type="number" min="1" placeholder="Andra divisorn" />
+            <span id="txtSecondDivisorError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+
+            <br/>
+            <button id="btnRun">Bish-Bosh 2.0</button>
+
+            <br/>
+            <p>Utskrift</p>
+            <textarea id="txtResult" readonly="readonly" style="width:700px; height:600px;"></textarea>
+        </section>
+
         <footer>
             <p>Copyright &copy;The coffee cup company. 2021 <br/>Webmaster Oscar Andersson</p>
         </footer>
