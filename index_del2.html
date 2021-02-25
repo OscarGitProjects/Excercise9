@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+    <title>Bish-Bosh 2.0</title>
+</head>
+<body>
+
+    <div id="container">
+        <header><h1>Bish-Bosh 2.0</h1></header>
+
+        <label for="txtNumberOfTurns">Antal varv i loopen</label>
+        <input id="txtNumberOfTurns" type="number" min="1" placeholder="Antal varv i loopen" />
+        <span id="txtNumberOfTurnsError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+
+        <br/>
+        <label for="txtFirstDivisor">Första talet som talet kan vara jämnt delbart med</label>
+        <input id="txtFirstDivisor" type="number" min="1" placeholder="Första divisorn" />
+        <span id="txtFirstDivisorError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+
+        <br/>
+        <label for="txtSecondDivisor">Andra talet som talet kan vara jämnt delbart med</label>
+        <input id="txtSecondDivisor" type="number" min="1" placeholder="Andra divisorn" />
+        <span id="txtSecondDivisorError" class="errorMessage" style="display:none;">Måste vara en positiv siffra</span>
+
+        <br/>
+        <button id="btnRun">Bish-Bosh 2.0</button>
+
+        <br/>
+        <p>Utskrift</p>
+        <textarea id="txtResult" readonly="readonly" style="width:700px; height:600px;"></textarea>
+        <footer>
+            <p>Copyright &copy;The coffee cup company. 2021 <br/>Webmaster Oscar Andersson</p>
+        </footer>
+    </div>    
+
+    <script src="scripts/bishBosh2.js"></script>
+</body>
+</html>

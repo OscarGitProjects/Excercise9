@@ -1,0 +1,14 @@
+body {
+    margin-left: 10%;
+    margin-right: 10%;    
+}
+
+#container {
+    background-color:antiquewhite;
+    padding: 15px;
+}
+
+
+.errorMessage {
+    color: red;
+}
