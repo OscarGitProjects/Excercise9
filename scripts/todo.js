@@ -33,6 +33,7 @@ function onClickListItem(target)
     let listItems = document.querySelectorAll('#ulShoppingList > li');
     if(listItems)
     {
+        let count = 1;
         listItems.forEach(item => {
 
             if(item.id == target.id)
@@ -44,16 +45,22 @@ function onClickListItem(target)
                     item.style.color = 'red';
                     item.style.textDecorationLine = 'line-through';
                     item.setAttribute('data-selected', 1);
-                    item.style.backgroundColor = 'yellow';
+                    item.style.backgroundColor = 'lightgray';
                 }
                 else
                 {// Item är redan vald. Välj bort item
                     item.style.color = 'black';
                     item.style.textDecorationLine = 'none';
                     item.setAttribute('data-selected', 0);
-                    item.style.backgroundColor = 'whitesmoke';
+
+                    if((count % 2) == 0)
+                        item.style.backgroundColor = 'whitesmoke';
+                    else
+                        item.style.backgroundColor = 'white';
                 }
             }
+
+            count++;
         });
     }
 }
@@ -65,13 +72,13 @@ function onClickListItem(target)
 */
 function onClickRemoveItem(target)
 {
-    // Hämta knappen som har tryckts
-    let btn = document.getElementById(target.id);
-    if(btn)
+    // Hämta image som har tryckts
+    let image = document.getElementById(target.id);
+    if(image)
     {
-        // Nu hämtar jag id till den list item som button ligger i. 
+        // Nu hämtar jag id till den list item som image ligger i. 
         // id finns som data-removeitem attribute på knappen
-        let itemId = btn.getAttribute('data-removeitem');
+        let itemId = image.getAttribute('data-removeitem');
         if(itemId)
         {
             // Hämta list item
@@ -79,6 +86,9 @@ function onClickRemoveItem(target)
             if(item)
             {// Radera list item
                 item.remove(itemId);
+
+                // Se till att varannan rad blir markerad med annan färg
+                resetEvenBackGroundColor();
             }
         }
     }
@@ -86,21 +96,52 @@ function onClickRemoveItem(target)
 
 
 /*
-    function som lägger till en ny vara i inköps listan
+    function som sätter jämna raders bakgrund till en färg och udda till en annan färg
+    är raden vald kommer bakgrundsfärgen inte att ändras
+*/
+function resetEvenBackGroundColor()
+{
+    let dataSelected = 0;
+
+    // Hämta alla list item i shoppinglistan
+    let listItems = document.querySelectorAll('#ulShoppingList > li');
+    if(listItems)
+    {
+        let count = 1;
+        listItems.forEach(item => {
+            dataSelected = item.getAttribute('data-selected');
+
+            if(dataSelected == 0)
+            {
+                if((count % 2) == 0)
+                    item.style.backgroundColor = 'whitesmoke';
+                else
+                    item.style.backgroundColor = 'white';
+            }
+
+            count++;
+        });
+    }
+}
+
+
+/*
+    function som lägger till en ny vara i inköpslistan
 */
 function AddProduct()
 {
     // Göm felmeddelanden i gui
     HideErrorMessages();
 
-    // Hämta info om nya proukten från gui
+    // Hämta info om nya produkten från gui
     let txtNewProduct = document.querySelector('#txtNewProduct').value;
     if(txtNewProduct)
-    {        
+    {  
         // Skapa en ny list item
         let newListElement = document.createElement("li");
         newListElement.setAttribute('id', 'listitem_' + nextId);        
         newListElement.setAttribute('data-selected', 0);
+        newListElement.setAttribute('title', 'Markera varan');
         newListElement.addEventListener('click', function(e) {
 
             if(e.target && e.target.nodeName == 'LI')
@@ -113,22 +154,23 @@ function AddProduct()
         let newTextNode = document.createTextNode(txtNewProduct)
         newListElement.appendChild(newTextNode);
 
-        // Skapa en knapp som skall finnas i list item
-        let btnElement = document.createElement('button');
-        btnElement.setAttribute('id', 'btnRemoveItem_' + nextId)
-        btnElement.setAttribute('data-removeitem', 'listitem_' + nextId);
-        btnElement.addEventListener('click', function(e){
+
+        // Skapa en bild som skall finnas i list item
+        let imageElement = document.createElement('img');
+        imageElement.src = 'images/trash.png';
+        imageElement.classList.add('float-right');
+        imageElement.setAttribute('title', 'Radera');
+        imageElement.setAttribute('id', 'imgRemoveItem_' + nextId)
+        imageElement.setAttribute('data-removeitem', 'listitem_' + nextId);
+        imageElement.addEventListener('click', function(e){
             
-            if(e.target && e.target.nodeName == 'BUTTON')
+            if(e.target && e.target.nodeName == 'IMG')
             {                
                 onClickRemoveItem(e.target);
             }
         });
 
-        // Skapa en text node som skall finnas i knappen
-        let newBtnText = document.createTextNode('Radera')
-        btnElement.appendChild(newBtnText);        
-        newListElement.appendChild(btnElement);
+        newListElement.appendChild(imageElement);
 
         // Lägg till allt till inköpslistan
         let ulShoppingList = document.getElementById('ulShoppingList');
@@ -137,6 +179,6 @@ function AddProduct()
     }
     else
     {
-        document.getElementById("txtNewProductError").style.display = "";
+        document.getElementById("txtNewProductError").style.display = "";     
     }
 }

@@ -1,13 +1,14 @@
 body {
     margin-left: 10%;
-    margin-right: 10%;    
+    margin-right: 10%;  
+    background-color:white;
 }
 
-#container {
+#my_container {
     background-color:antiquewhite;
-    padding: 15px;
+    /*padding-left: 0; 
+    padding-right: 0;*/
 }
-
 
 .errorMessage {
     color: red;
@@ -17,9 +18,9 @@ body {
     list-style-type: none;
 }
 
-.selectedListItem {
-    background-color: red;
-    color: green;
+ul
+{
+    padding-inline-start: 0px;
 }
 
 ul > li {
@@ -27,11 +28,11 @@ ul > li {
     border-width: 1px;
     border-color: black;
     width: 200px;
-    background-color: whitesmoke;
-    margin-bottom: 5px;
-    /*text-decoration: line-through;*/
+    background-color:white;
+    margin-bottom: 2px;
+    padding: 5px;
 }
 
-button {
-    background-color: aqua;        
+li:nth-child(even) {
+    background: whitesmoke;
 }
