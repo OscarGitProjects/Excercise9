@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="styles/styleTodo.css" />
+    <title>Inköpslista</title>
+</head>
+<body>    
+    <div id="container">
+        <header>
+            <h1>Inköpslista</h1>
+        </header>
+
+        <section>
+            <label for="txtNewProduct">Ny vara</label>
+            <input type="text" id="txtNewProduct" placeholder="Ange ny produkt" />
+            <span id="txtNewProductError" class="errorMessage" style="display:none;">Ni måste skriva in namn på varan</span>
+
+            <br/>
+            <button id="btnAddProduct">Lägg till vara till inköpslistan</button>
+
+            <div id="divShoppingList">
+                <ul id="ulShoppingList">
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>Copyright &copy;ToDo list. 2021 <br/>Webmaster Oscar Andersson</p>
+        </footer>
+
+        <script src="scripts/todo.js"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+body {
+    margin-left: 10%;
+    margin-right: 10%;    
+}
+
+#container {
+    background-color:antiquewhite;
+    padding: 15px;
+}
+
+
+.errorMessage {
+    color: red;
+}
+
+#ulShoppingList {
+    list-style-type: none;
+}
+
+.selectedListItem {
+    background-color: red;
+    color: green;
+}
+
+ul > li {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 200px;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+    /*text-decoration: line-through;*/
+}
+
+button {
+    background-color: aqua;        
+}
