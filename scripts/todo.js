@@ -88,7 +88,7 @@ function onClickRemoveItem(target)
                 item.remove(itemId);
 
                 // Se till att varannan rad blir markerad med annan färg
-                resetEvenBackGroundColor();
+                resetEvenBackgroundColor();
             }
         }
     }
@@ -99,7 +99,7 @@ function onClickRemoveItem(target)
     function som sätter jämna raders bakgrund till en färg och udda till en annan färg
     är raden vald kommer bakgrundsfärgen inte att ändras
 */
-function resetEvenBackGroundColor()
+function resetEvenBackgroundColor()
 {
     let dataSelected = 0;
 
@@ -159,6 +159,7 @@ function AddProduct()
         let imageElement = document.createElement('img');
         imageElement.src = 'images/trash.png';
         imageElement.classList.add('float-right');
+        imageElement.setAttribute('alt', 'trash image');
         imageElement.setAttribute('title', 'Radera');
         imageElement.setAttribute('id', 'imgRemoveItem_' + nextId)
         imageElement.setAttribute('data-removeitem', 'listitem_' + nextId);
